@@ -11,6 +11,7 @@ label_indices = {cat['id']: cat for cat in labels}
 import clip
 from tqdm import tqdm
 import torch
+import numpy as np
 
 multiple_templates = [
     'There is {article} {} in the scene.', 'There is the {} in the scene.',
@@ -86,8 +87,8 @@ text_features = build_text_embedding(labels)
 
 for label, feature in zip(labels, text_features):
   label['embedding_feature'] = feature
-  print(label)
-  print(type(label))
+  #//print(label)
+  #//print(type(label))
 #//print(text_features)
 #//print(type(labels))
 
@@ -95,3 +96,15 @@ with open('label_embedding.csv', 'w') as f:
   for label in labels:
       [f.write('{0},{1}\n'.format(key, value)) for key, value in label.items()]
   
+for feature in text_features:
+  #//print(feature)
+  pass
+
+print(type(text_features))
+np.save('label_embedding.npy', text_features)
+
+features = np.load('label_embedding.npy')
+import operator
+
+print(operator.eq(features, text_features))
+print(features)

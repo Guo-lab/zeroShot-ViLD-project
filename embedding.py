@@ -65,7 +65,9 @@ def build_text_embedding(categories):
                  for text in texts]
       texts = clip.tokenize(texts) #@ Returns a LongTensor containing tokenized sequences of given text input(s).
       #TODO print("texts[tokenized sequences of given text inputs]: ", texts) ## This can be used as the input to the model.
-      
+      if torch.cuda.is_available():
+        texts = texts.cuda()
+        
       #@ Given a batch of text tokens, returns the text features encoded by the language portion of the CLIP model.  
       text_embeddings = model.encode_text(texts) #embed with text encoder 
       text_embeddings /= text_embeddings.norm(dim=-1, keepdim=True)
@@ -74,6 +76,8 @@ def build_text_embedding(categories):
       all_text_embeddings.append(text_embedding)
     ## FOR ENDING
     all_text_embeddings = torch.stack(all_text_embeddings, dim=1)
+    if torch.cuda.is_available():
+      all_text_embeddings = all_text_embeddings.cuda()
   ## WITH ENDING 
   return all_text_embeddings.cpu().numpy().T
 

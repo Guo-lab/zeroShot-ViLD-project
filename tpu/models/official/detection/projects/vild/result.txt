@@ -1,0 +1,325 @@
+(zeroShot) GSQdeMacBook-Pro:vild gsq$ source run_vild.sh
+I0609 23:53:31.628148 4723258880 main.py:122] Model Parameters: {'anchor': {'anchor_size': 8,
+            'aspect_ratios': [1.0, 2.0, 0.5],
+            'num_scales': 1},
+ 'architecture': {'backbone': 'resnet',
+                  'feat_distill_weight': 0.5,
+                  'filter_distill_boxes_size': 0,
+                  'include_mask': True,
+                  'mask_target_size': 28,
+                  'max_level': 6,
+                  'max_num_rois': 300,
+                  'min_level': 2,
+                  'multilevel_features': 'fpn',
+                  'normalize_feat_during_training': True,
+                  'num_classes': 1204,
+                  'parser': 'vild_parser',
+                  'pre_parser': None,
+                  'space_to_depth_block_size': 1,
+                  'use_bfloat16': False,
+                  'visual_feature_dim': 512,
+                  'visual_feature_distill': 'vanilla'},
+ 'batch_norm_activation': {'activation': 'relu',
+                           'batch_norm_epsilon': 0.0001,
+                           'batch_norm_momentum': 0.997,
+                           'batch_norm_trainable': True,
+                           'use_sync_bn': False},
+ 'dropblock': {'dropblock_keep_prob': None, 'dropblock_size': None},
+ 'enable_summary': False,
+ 'eval': {'eval_batch_size': 1,
+          'eval_dataset_type': 'tfrecord',
+          'eval_file_pattern': '/val*',
+          'eval_samples': 19809,
+          'eval_timeout': 10,
+          'min_eval_interval': 5,
+          'num_steps_per_eval': 1000,
+          'per_category_metrics': False,
+          'skip_eval_loss': False,
+          'suffix': '',
+          'type': 'lvis_box_and_mask',
+          'use_json_file': True,
+          'val_json_file': '/Users/gsq/Desktop/tpu/models/official/detection/projects/vild/1data_dir/lvis_v1_val.json'},
+ 'fpn': {'fpn_feat_dims': 256,
+         'use_batch_norm': True,
+         'use_separable_conv': False},
+ 'frcnn_box_loss': {'huber_loss_delta': 1.0},
+ 'frcnn_class_loss': {'mask_rare': True,
+                      'rare_mask_path': '/Users/gsq/Desktop/tpu/models/official/detection/projects/vild/1weig_dir/lvis_rare_masks.npy'},
+ 'frcnn_head': {'class_agnostic_bbox_pred': True,
+                'classifier_weight_path': '/Users/gsq/Desktop/tpu/models/official/detection/projects/vild/1weig_dir/clip_synonym_prompt.npy',
+                'clip_dim': 512,
+                'fc_dims': 1024,
+                'normalize_classifier': True,
+                'normalize_visual': True,
+                'num_convs': 4,
+                'num_fcs': 2,
+                'num_filters': 256,
+                'temperature': 100.0,
+                'use_batch_norm': True,
+                'use_separable_conv': False},
+ 'isolate_session_state': False,
+ 'mask_sampling': {'num_mask_samples_per_image': 128},
+ 'model_dir': '/Users/gsq/Desktop/tpu/models/official/detection/projects/vild/1mode_dir/',
+ 'mrcnn_head': {'class_agnostic_mask_pred': True,
+                'num_convs': 4,
+                'num_filters': 256,
+                'use_batch_norm': True,
+                'use_separable_conv': False},
+ 'nasfpn': {'activation': None,
+            'block_fn': 'conv',
+            'fpn_feat_dims': 256,
+            'init_drop_connect_rate': None,
+            'num_repeats': 5,
+            'use_separable_conv': False,
+            'use_sum_for_combination': False},
+ 'platform': {'eval_master': None,
+              'gcp_project': None,
+              'tpu': None,
+              'tpu_zone': None},
+ 'postprocess': {'apply_nms': True,
+                 'apply_sigmoid': False,
+                 'discard_background': False,
+                 'max_total_size': 300,
+                 'nms_iou_threshold': 0.5,
+                 'nms_version': 'v1',
+                 'pre_nms_num_boxes': 1000,
+                 'rare_mask_path': '/Users/gsq/Desktop/tpu/models/official/detection/projects/vild/1weig_dir/lvis_rare_masks.npy',
+                 'score_threshold': 0.0,
+                 'use_batched_nms': False},
+ 'predict': {'predict_batch_size': 1},
+ 'resnet': {'init_drop_connect_rate': None, 'resnet_depth': 50},
+ 'roi_proposal': {'rpn_min_size_threshold': 0.0,
+                  'rpn_nms_threshold': 0.7,
+                  'rpn_post_nms_top_k': 1000,
+                  'rpn_pre_nms_top_k': 2000,
+                  'rpn_score_threshold': 0.0,
+                  'test_rpn_min_size_threshold': 0.0,
+                  'test_rpn_nms_threshold': 0.7,
+                  'test_rpn_post_nms_top_k': 1000,
+                  'test_rpn_pre_nms_top_k': 1000,
+                  'test_rpn_score_threshold': 0.0,
+                  'use_batched_nms': False},
+ 'roi_sampling': {'bg_iou_thresh_hi': 0.5,
+                  'bg_iou_thresh_lo': 0.0,
+                  'cascade_iou_thresholds': None,
+                  'fg_fraction': 0.25,
+                  'fg_iou_thresh': 0.5,
+                  'mix_gt_boxes': True,
+                  'num_samples_per_image': 512},
+ 'rpn_box_loss': {'huber_loss_delta': 0.1111111111111111},
+ 'rpn_head': {'anchors_per_location': None,
+              'cast_to_float32': True,
+              'num_convs': 2,
+              'num_filters': 256,
+              'use_batch_norm': True,
+              'use_separable_conv': False},
+ 'rpn_score_loss': {'rpn_batch_size_per_im': 256},
+ 'spinenet': {'init_drop_connect_rate': None,
+              'model_id': '49',
+              'use_native_resize_op': False},
+ 'spinenet_mbconv': {'init_drop_connect_rate': None,
+                     'model_id': '49',
+                     'se_ratio': 0.2,
+                     'use_native_resize_op': False},
+ 'tpu_job_name': None,
+ 'train': {'checkpoint': {'path': '', 'prefix': '', 'skip_variables_regex': ''},
+           'frozen_variable_prefix': 'frcnn_layer_0/fast_rcnn_head/class-predict',
+           'gradient_clip_norm': 0.0,
+           'input_partition_dims': None,
+           'iterations_per_loop': 100,
+           'l2_weight_decay': 4e-05,
+           'learning_rate': {'init_learning_rate': 0.32,
+                             'learning_rate_levels': [0.032, 0.0032],
+                             'learning_rate_steps': [162000, 171000, 175500],
+                             'type': 'step',
+                             'warmup_learning_rate': 0.0032,
+                             'warmup_steps': 1000},
+           'losses': 'all',
+           'num_cores_per_replica': None,
+           'num_shards': 8,
+           'optimizer': {'momentum': 0.9, 'type': 'momentum'},
+           'pre_parser_dataset': {'dataset_type': 'tfrecord',
+                                  'file_pattern': ''},
+           'regularization_variable_regex': '.*(kernel|weight):0$',
+           'space_to_depth_block_size': 1,
+           'total_steps': 180000,
+           'train_batch_size': 256,
+           'train_dataset_type': 'tfrecord',
+           'train_file_pattern': '',
+           'transpose_input': True},
+ 'type': 'vild',
+ 'use_tpu': False,
+ 'vild_parser': {'aug_rand_hflip': True,
+                 'aug_scale_max': 2.0,
+                 'aug_scale_min': 0.1,
+                 'copy_paste': False,
+                 'mask_crop_size': 112,
+                 'max_num_instances': 300,
+                 'output_size': [1024, 1024],
+                 'regenerate_source_id': False,
+                 'rpn_batch_size_per_im': 256,
+                 'rpn_fg_fraction': 0.5,
+                 'rpn_match_threshold': 0.7,
+                 'rpn_unmatched_threshold': 0.3,
+                 'skip_crowd_during_training': True}}
+INFO:tensorflow:in GenericDetectionGenerator, discard_background is set to False
+I0609 23:53:31.631031 4723258880 postprocess_ops.py:532] in GenericDetectionGenerator, discard_background is set to False
+INFO:tensorflow:gpu devices: []
+I0609 23:53:31.631448 4723258880 tpu_executor.py:135] gpu devices: []
+2022-06-09 23:53:31.635916: I tensorflow/core/platform/cpu_feature_guard.cc:193] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN) to use the following CPU instructions in performance-critical operations:  AVX2 FMA
+To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.
+WARNING:tensorflow:There are non-GPU devices in `tf.distribute.Strategy`, not using nccl allreduce.
+W0609 23:53:31.641222 4723258880 cross_device_ops.py:1386] There are non-GPU devices in `tf.distribute.Strategy`, not using nccl allreduce.
+INFO:tensorflow:Using MirroredStrategy with devices ('/job:localhost/replica:0/task:0/device:CPU:0',)
+I0609 23:53:31.665985 4723258880 mirrored_strategy.py:374] Using MirroredStrategy with devices ('/job:localhost/replica:0/task:0/device:CPU:0',)
+INFO:tensorflow:Number of devices: 1
+I0609 23:53:31.668144 4723258880 tpu_executor.py:138] Number of devices: 1
+INFO:tensorflow:Initializing RunConfig with distribution strategies.
+I0609 23:53:31.747296 4723258880 run_config.py:581] Initializing RunConfig with distribution strategies.
+INFO:tensorflow:Not using Distribute Coordinator.
+I0609 23:53:31.747454 4723258880 estimator_training.py:163] Not using Distribute Coordinator.
+INFO:tensorflow:Using config: {'_model_dir': '/Users/gsq/Desktop/tpu/models/official/detection/projects/vild/1mode_dir/', '_tf_random_seed': None, '_save_summary_steps': 100, '_save_checkpoints_steps': None, '_save_checkpoints_secs': 600, '_session_config': allow_soft_placement: true
+graph_options {
+  rewrite_options {
+    meta_optimizer_iterations: ONE
+  }
+}
+, '_keep_checkpoint_max': 5, '_keep_checkpoint_every_n_hours': 10000, '_log_step_count_steps': 100, '_train_distribute': <tensorflow.python.distribute.mirrored_strategy.MirroredStrategyV1 object at 0x7fef57b5c8b0>, '_device_fn': None, '_protocol': None, '_eval_distribute': None, '_experimental_distribute': None, '_experimental_max_worker_delay_secs': None, '_session_creation_timeout_secs': 7200, '_checkpoint_save_graph_def': True, '_service': None, '_cluster_spec': ClusterSpec({}), '_task_type': 'worker', '_task_id': 0, '_global_id_in_cluster': 0, '_master': '', '_evaluation_master': '', '_is_chief': True, '_num_ps_replicas': 0, '_num_worker_replicas': 1, '_distribute_coordinator_mode': None}
+I0609 23:53:31.749754 4723258880 estimator.py:202] Using config: {'_model_dir': '/Users/gsq/Desktop/tpu/models/official/detection/projects/vild/1mode_dir/', '_tf_random_seed': None, '_save_summary_steps': 100, '_save_checkpoints_steps': None, '_save_checkpoints_secs': 600, '_session_config': allow_soft_placement: true
+graph_options {
+  rewrite_options {
+    meta_optimizer_iterations: ONE
+  }
+}
+, '_keep_checkpoint_max': 5, '_keep_checkpoint_every_n_hours': 10000, '_log_step_count_steps': 100, '_train_distribute': <tensorflow.python.distribute.mirrored_strategy.MirroredStrategyV1 object at 0x7fef57b5c8b0>, '_device_fn': None, '_protocol': None, '_eval_distribute': None, '_experimental_distribute': None, '_experimental_max_worker_delay_secs': None, '_session_creation_timeout_secs': 7200, '_checkpoint_save_graph_def': True, '_service': None, '_cluster_spec': ClusterSpec({}), '_task_type': 'worker', '_task_id': 0, '_global_id_in_cluster': 0, '_master': '', '_evaluation_master': '', '_is_chief': True, '_num_ps_replicas': 0, '_num_worker_replicas': 1, '_distribute_coordinator_mode': None}
+INFO:tensorflow:Waiting for new checkpoint at /Users/gsq/Desktop/tpu/models/official/detection/projects/vild/1mode_dir/
+I0609 23:53:31.752243 4723258880 checkpoint_utils.py:136] Waiting for new checkpoint at /Users/gsq/Desktop/tpu/models/official/detection/projects/vild/1mode_dir/
+INFO:tensorflow:Found new checkpoint at /Users/gsq/Desktop/tpu/models/official/detection/projects/vild/1mode_dir/model.ckpt-180000
+I0609 23:53:31.753557 4723258880 checkpoint_utils.py:145] Found new checkpoint at /Users/gsq/Desktop/tpu/models/official/detection/projects/vild/1mode_dir/model.ckpt-180000
+I0609 23:53:31.753699 4723258880 main.py:203] Starting to evaluate.
+<dataloader.input_reader.InputFn object at 0x7fef57b16280> 19809 /Users/gsq/Desktop/tpu/models/official/detection/projects/vild/1mode_dir/model.ckpt-180000
+<dataloader.input_reader.InputFn object at 0x7fef57b16280> 19809 /Users/gsq/Desktop/tpu/models/official/detection/projects/vild/1mode_dir/model.ckpt-180000
+I0609 23:53:32.002357 4723258880 lvis.py:25] Loading annotations.
+I0609 23:53:37.480007 4723258880 lvis.py:39] Creating index.
+I0609 23:53:38.201846 4723258880 lvis.py:61] Index created.
+<generator object Estimator.predict at 0x7fef073f5eb0>
+defaultdict(<function TpuExecutor.evaluate.<locals>.<lambda> at 0x7fef57ddee50>, {})
+HERE
+WARNING:tensorflow:From /Users/gsq/Desktop/tpu/models/official/detection/dataloader/input_reader.py:50: parallel_interleave (from tensorflow.python.data.experimental.ops.interleave_ops) is deprecated and will be removed in a future version.
+Instructions for updating:
+Use `tf.data.Dataset.interleave(map_func, cycle_length, block_length, num_parallel_calls=tf.data.AUTOTUNE)` instead. If sloppy execution is desired, use `tf.data.Options.deterministic`.
+W0609 23:53:38.242382 4723258880 deprecation.py:350] From /Users/gsq/Desktop/tpu/models/official/detection/dataloader/input_reader.py:50: parallel_interleave (from tensorflow.python.data.experimental.ops.interleave_ops) is deprecated and will be removed in a future version.
+Instructions for updating:
+Use `tf.data.Dataset.interleave(map_func, cycle_length, block_length, num_parallel_calls=tf.data.AUTOTUNE)` instead. If sloppy execution is desired, use `tf.data.Options.deterministic`.
+WARNING:tensorflow:From /Applications/anaconda3/envs/zeroShot/lib/python3.9/site-packages/tensorflow/python/autograph/impl/api.py:464: calling map_fn (from tensorflow.python.ops.map_fn) with dtype is deprecated and will be removed in a future version.
+Instructions for updating:
+Use fn_output_signature instead
+W0609 23:53:38.853616 4723258880 deprecation.py:554] From /Applications/anaconda3/envs/zeroShot/lib/python3.9/site-packages/tensorflow/python/autograph/impl/api.py:464: calling map_fn (from tensorflow.python.ops.map_fn) with dtype is deprecated and will be removed in a future version.
+Instructions for updating:
+Use fn_output_signature instead
+INFO:tensorflow:Calling model_fn.
+I0609 23:53:39.917310 4723258880 estimator.py:1173] Calling model_fn.
+I0609 23:53:39.951557 4723258880 nn_blocks.py:135] -----> Building bottleneck block.
+I0609 23:53:40.061120 4723258880 nn_blocks.py:135] -----> Building bottleneck block.
+I0609 23:53:40.145924 4723258880 nn_blocks.py:135] -----> Building bottleneck block.
+I0609 23:53:40.237754 4723258880 nn_blocks.py:135] -----> Building bottleneck block.
+I0609 23:53:40.358619 4723258880 nn_blocks.py:135] -----> Building bottleneck block.
+I0609 23:53:40.453308 4723258880 nn_blocks.py:135] -----> Building bottleneck block.
+I0609 23:53:40.551240 4723258880 nn_blocks.py:135] -----> Building bottleneck block.
+I0609 23:53:40.662463 4723258880 nn_blocks.py:135] -----> Building bottleneck block.
+I0609 23:53:40.810166 4723258880 nn_blocks.py:135] -----> Building bottleneck block.
+I0609 23:53:40.936405 4723258880 nn_blocks.py:135] -----> Building bottleneck block.
+I0609 23:53:41.103247 4723258880 nn_blocks.py:135] -----> Building bottleneck block.
+I0609 23:53:41.247133 4723258880 nn_blocks.py:135] -----> Building bottleneck block.
+I0609 23:53:41.381047 4723258880 nn_blocks.py:135] -----> Building bottleneck block.
+I0609 23:53:41.528015 4723258880 nn_blocks.py:135] -----> Building bottleneck block.
+I0609 23:53:41.759582 4723258880 nn_blocks.py:135] -----> Building bottleneck block.
+I0609 23:53:41.940602 4723258880 nn_blocks.py:135] -----> Building bottleneck block.
+
+
+2 values:  {5: <tf.Tensor 'fpn/p5-bn/FusedBatchNormV3:0' shape=(256, 32, 32, 256) dtype=float32>, 4: <tf.Tensor 'fpn/p4-bn/FusedBatchNormV3:0' shape=(256, 64, 64, 256) dtype=float32>, 3: <tf.Tensor 'fpn/p3-bn/FusedBatchNormV3:0' shape=(256, 128, 128, 256) dtype=float32>, 2: <tf.Tensor 'fpn/p2-bn/FusedBatchNormV3:0' shape=(256, 256, 256, 256) dtype=float32>, 6: <tf.Tensor 'fpn/p6-bn/FusedBatchNormV3:0' shape=(256, 16, 16, 256) dtype=float32>} Tensor("multilevel_propose_rois/top_k_rois/top_k_boxes/GatherNd:0", shape=(256, 1000, 4), dtype=float32) 
+
+
+
+spatial_ 3 values:  [256, 1000, 4] 
+
+
+WARNING:tensorflow:From /Applications/anaconda3/envs/zeroShot/lib/python3.9/site-packages/tensorflow/python/util/dispatch.py:1086: div (from tensorflow.python.ops.math_ops) is deprecated and will be removed in a future version.
+Instructions for updating:
+Deprecated in favor of operator or tf.math.divide.
+W0609 23:53:44.183309 4723258880 deprecation.py:350] From /Applications/anaconda3/envs/zeroShot/lib/python3.9/site-packages/tensorflow/python/util/dispatch.py:1086: div (from tensorflow.python.ops.math_ops) is deprecated and will be removed in a future version.
+Instructions for updating:
+Deprecated in favor of operator or tf.math.divide.
+INFO:tensorflow:visual: Tensor("frcnn_layer_0/fast_rcnn_head/project-to-clip/BiasAdd:0", shape=(256, 1000, 512), dtype=float32)
+I0609 23:53:44.798565 4723258880 vild_head.py:258] visual: Tensor("frcnn_layer_0/fast_rcnn_head/project-to-clip/BiasAdd:0", shape=(256, 1000, 512), dtype=float32)
+INFO:tensorflow:visual_norm: Tensor("frcnn_layer_0/fast_rcnn_head/visual_norm/Sqrt:0", shape=(256, 1000, 1), dtype=float32)
+I0609 23:53:44.800496 4723258880 vild_head.py:261] visual_norm: Tensor("frcnn_layer_0/fast_rcnn_head/visual_norm/Sqrt:0", shape=(256, 1000, 1), dtype=float32)
+INFO:tensorflow:loaded_numpy.shape: (512, 1203); clip dim: 512; num_classes: 1204
+I0609 23:53:44.811594 4723258880 vild_head.py:308] loaded_numpy.shape: (512, 1203); clip dim: 512; num_classes: 1204
+INFO:tensorflow:classifier_norm: Tensor("frcnn_layer_0/fast_rcnn_head/norm/Squeeze:0", shape=(1203,), dtype=float32)
+I0609 23:53:44.844099 4723258880 vild_head.py:326] classifier_norm: Tensor("frcnn_layer_0/fast_rcnn_head/norm/Squeeze:0", shape=(1203,), dtype=float32)
+INFO:tensorflow:bg_classifier: <tf.Variable 'frcnn_layer_0/fast_rcnn_head/background-class-predict/kernel:0' shape=(512, 1) dtype=float32>
+I0609 23:53:44.877064 4723258880 vild_head.py:341] bg_classifier: <tf.Variable 'frcnn_layer_0/fast_rcnn_head/background-class-predict/kernel:0' shape=(512, 1) dtype=float32>
+INFO:tensorflow:bg_classifier_norm: Tensor("frcnn_layer_0/fast_rcnn_head/norm_1/Squeeze:0", shape=(1,), dtype=float32)
+I0609 23:53:44.879872 4723258880 vild_head.py:343] bg_classifier_norm: Tensor("frcnn_layer_0/fast_rcnn_head/norm_1/Squeeze:0", shape=(1,), dtype=float32)
+box_outputs: Tensor("frcnn_layer_0/fast_rcnn_head/box-predict/BiasAdd:0", shape=(256, 1000, 4), dtype=float32)
+class_outputs: Tensor("frcnn_layer_0/fast_rcnn_head/mul:0", shape=(256, 1000, 1204), dtype=float32)
+(256, 1000, 1203)
+256
+batchsize: [ 0  in  256 ]
+class_process: [ 0  in  1203 ]
+class_process: [ 10  in  1203 ]
+class_process: [ 20  in  1203 ]
+class_process: [ 30  in  1203 ]
+class_process: [ 40  in  1203 ]
+class_process: [ 50  in  1203 ]
+class_process: [ 60  in  1203 ]
+class_process: [ 70  in  1203 ]
+class_process: [ 80  in  1203 ]
+class_process: [ 90  in  1203 ]
+class_process: [ 100  in  1203 ]
+class_process: [ 110  in  1203 ]
+class_process: [ 120  in  1203 ]
+class_process: [ 130  in  1203 ]
+class_process: [ 140  in  1203 ]
+class_process: [ 150  in  1203 ]
+class_process: [ 160  in  1203 ]
+class_process: [ 170  in  1203 ]
+class_process: [ 180  in  1203 ]
+class_process: [ 190  in  1203 ]
+class_process: [ 200  in  1203 ]
+class_process: [ 210  in  1203 ]
+class_process: [ 220  in  1203 ]
+class_process: [ 230  in  1203 ]
+class_process: [ 240  in  1203 ]
+class_process: [ 250  in  1203 ]
+class_process: [ 260  in  1203 ]
+class_process: [ 270  in  1203 ]
+class_process: [ 280  in  1203 ]
+class_process: [ 290  in  1203 ]
+class_process: [ 300  in  1203 ]
+class_process: [ 310  in  1203 ]
+class_process: [ 320  in  1203 ]
+class_process: [ 330  in  1203 ]
+class_process: [ 340  in  1203 ]
+class_process: [ 350  in  1203 ]
+class_process: [ 360  in  1203 ]
+class_process: [ 370  in  1203 ]
+class_process: [ 380  in  1203 ]
+class_process: [ 390  in  1203 ]
+class_process: [ 400  in  1203 ]
+class_process: [ 410  in  1203 ]
+class_process: [ 420  in  1203 ]
+class_process: [ 430  in  1203 ]
+class_process: [ 440  in  1203 ]
+class_process: [ 450  in  1203 ]
+class_process: [ 460  in  1203 ]
+class_process: [ 470  in  1203 ]
+class_process: [ 480  in  1203 ]
+class_process: [ 490  in  1203 ]
+class_process: [ 500  in  1203 ]
+class_process: [ 510  in  1203 ]
+class_process: [ 520  in  1203 ]
+class_process: [ 530  in  1203 ]
+class_process: [ 540  in  1203 ]
+class_process: [ 550  in  1203 ]

@@ -12,11 +12,15 @@ MODEL_DIR=${VILD_DIR}/1mode_dir/
 
 WEIGHTS_DIR=/Users/gsq/Desktop/tpu/models/official/detection/projects/vild/1weig_dir
 
+DEST_DIR=/Users/gsq/Desktop/tpu/models/official/detection/projects/vild/1dest_dir
 EVAL_FILE_PATTERN="${DEST_DIR}/val*"
 VAL_JSON_FILE="${DATA_DIR}/lvis_v1_val.json"
 
 RARE_MASK_PATH="${WEIGHTS_DIR}/lvis_rare_masks.npy"
-CLASSIFIER_WEIGHT_PATH="${WEIGHTS_DIR}/clip_synonym_prompt.npy"
+#CLASSIFIER_WEIGHT_PATH="${WEIGHTS_DIR}/clip_synonym_prompt.npy"
+#CLASSIFIER_WEIGHT_PATH="${WEIGHTS_DIR}/clip_synonym_prompt_new.npy"
+CLASSIFIER_WEIGHT_PATH="${WEIGHTS_DIR}/arr.npy"
+
 
 CONFIG_FILE="/Users/gsq/Desktop/tpu/models/official/detection/projects/vild/configs/vild_resnet.yaml"
 #//echo ${CONFIG_FILE}
@@ -36,12 +40,15 @@ python3 main.py \
     predict: {predict_batch_size: ${BATCH_SIZE?}}, \
     eval: {eval_batch_size: ${BATCH_SIZE?}, \
            val_json_file: ${VAL_JSON_FILE?}, \
-           eval_timeout: 10,
-           eval_file_pattern: ${EVAL_FILE_PATTERN?} \
+           eval_timeout: 5,
+           eval_file_pattern: ${EVAL_FILE_PATTERN?}, \
+           eval_samples: 2, \
+           num_steps_per_eval: 100, \
            }, \
     frcnn_head: {classifier_weight_path: ${CLASSIFIER_WEIGHT_PATH?}}, \
     frcnn_class_loss: {rare_mask_path: ${RARE_MASK_PATH?}},
     postprocess: {rare_mask_path: ${RARE_MASK_PATH?}},
+    architecture: {num_classes: 3},
     }"
 # postprocess: {rare_mask_path: ${RARE_MASK_PATH?}}\
 # eval _ { num_steps_per_eval: 1 },

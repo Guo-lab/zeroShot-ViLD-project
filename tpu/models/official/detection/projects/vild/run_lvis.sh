@@ -23,5 +23,9 @@ python3 preprocessing/create_lvis_tf_record.py \
   --dest_dir="${DEST_DIR}" \
   --include_mask=True \
   --split='val' \
-  --num_parts=100 \
-  --max_num_processes=100
+  --num_parts=5 \
+  --max_num_processes=1
+
+
+#  --num_parts=100 \
+#  --max_num_processes=100

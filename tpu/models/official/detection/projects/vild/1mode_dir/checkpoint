@@ -1,2 +1,0 @@
-model_checkpoint_path: "/Users/gsq/Desktop/tpu/models/official/detection/projects/vild/1mode_dir/model.ckpt-180000"
-all_model_checkpoint_paths: "/Users/gsq/Desktop/tpu/models/official/detection/projects/vild/1mode_dir/model.ckpt-180000"

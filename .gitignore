@@ -1,0 +1,5 @@
+__pycache__/
+.vscode/
+model.ckpt*
+save_models/*
+.DS_Store
